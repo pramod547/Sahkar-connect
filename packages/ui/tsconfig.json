@@ -1,0 +1,12 @@
+{
+  "extends": "@sahakar/config/tsconfig.base.json",
+  "compilerOptions": {
+    "moduleResolution": "node",
+    "module": "commonjs",
+    "noEmit": false,
+    "declaration": true,
+    "rootDir": "src",
+    "outDir": "dist"
+  },
+  "include": ["src/**/*"]
+}

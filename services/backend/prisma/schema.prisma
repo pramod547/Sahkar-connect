@@ -1,0 +1,476 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+enum UserRole {
+  customer
+  worker
+  society_admin
+  federation_admin
+  platform_admin
+}
+
+enum WorkerStatus {
+  applicant
+  documents_pending
+  verified
+  active
+  suspended
+  inactive
+}
+
+enum CertificationLevel {
+  basic
+  certified
+  senior
+}
+
+enum BookingStatus {
+  pending_match
+  offered
+  assigned
+  in_progress
+  completed
+  cancelled
+  disputed
+}
+
+enum JobOfferStatus {
+  pending
+  accepted
+  rejected
+  expired
+}
+
+enum JobAssignmentStatus {
+  en_route
+  arrived
+  in_progress
+  completed
+  no_show
+}
+
+enum PaymentStatus {
+  created
+  captured
+  failed
+  refunded
+}
+
+enum PayoutStatus {
+  pending
+  paid
+}
+
+enum WelfareEntryType {
+  contribution
+  claim_payout
+}
+
+enum WelfareClaimCategory {
+  medical
+  accident
+  equipment
+  other
+}
+
+enum WelfareClaimStatus {
+  filed
+  approved
+  rejected
+  paid
+}
+
+enum DisputeCategory {
+  quality
+  no_show
+  payment
+  damage
+  conduct
+  other
+}
+
+enum DisputeStatus {
+  filed
+  society_review
+  escalated_to_federation
+  resolved
+  closed
+}
+
+enum KycDocType {
+  aadhaar
+  e_shram_card
+  skill_certificate
+  police_verification
+  other
+}
+
+enum KycVerificationStatus {
+  pending
+  verified
+  rejected
+}
+
+enum KycVerifiedVia {
+  manual
+  e_shram_mock
+  digilocker_mock
+}
+
+model User {
+  id                 String          @id @default(uuid()) @db.Uuid
+  phone_number       String          @unique @db.VarChar(15)
+  email              String?         @unique @db.VarChar(255)
+  password_hash      String?         @db.VarChar(255)
+  role               UserRole
+  full_name          String          @db.VarChar(255)
+  preferred_language String          @default("hi") @db.VarChar(10)
+  is_active          Boolean         @default(true)
+  created_at         DateTime        @default(now()) @db.Timestamptz()
+  updated_at         DateTime        @updatedAt @db.Timestamptz()
+
+  worker_profile     WorkerProfile?
+  customer_profile   CustomerProfile?
+  admin_profile      AdminProfile?
+  disputes_filed     Dispute[]       @relation("UserDisputes")
+  claims_reviewed    WelfareClaim[]  @relation("AdminClaimReviews")
+  notifications      Notification[]
+
+  @@map("users")
+}
+
+model AdminProfile {
+  id            String                 @id @default(uuid()) @db.Uuid
+  user_id       String                 @unique @db.Uuid
+  society_id    String?                @db.Uuid
+  federation_id String?                @db.Uuid
+  created_at    DateTime               @default(now()) @db.Timestamptz()
+  updated_at    DateTime               @updatedAt @db.Timestamptz()
+
+  user          User                   @relation(fields: [user_id], references: [id], onDelete: Cascade)
+  society       CooperativeSociety?    @relation(fields: [society_id], references: [id])
+  federation    CooperativeFederation? @relation(fields: [federation_id], references: [id])
+
+  @@map("admin_profiles")
+}
+
+model CooperativeFederation {
+  id                   String               @id @default(uuid()) @db.Uuid
+  name                 String               @db.VarChar(255)
+  region               String               @db.VarChar(255)
+  ncct_registration_id String?              @db.VarChar(100)
+  created_at           DateTime             @default(now()) @db.Timestamptz()
+  updated_at           DateTime             @updatedAt @db.Timestamptz()
+
+  societies            CooperativeSociety[]
+  admin_profiles       AdminProfile[]
+
+  @@map("cooperative_federations")
+}
+
+model CooperativeSociety {
+  id                     String                @id @default(uuid()) @db.Uuid
+  federation_id          String                @db.Uuid
+  name                   String                @db.VarChar(255)
+  district               String                @db.VarChar(255)
+  primary_trade_focus    String?               @db.VarChar(255)
+  max_dispatch_radius_km Decimal               @default(8.0) @db.Decimal(5, 2)
+  created_at             DateTime              @default(now()) @db.Timestamptz()
+  updated_at             DateTime              @updatedAt @db.Timestamptz()
+
+  federation             CooperativeFederation @relation(fields: [federation_id], references: [id], onDelete: Cascade)
+  worker_profiles        WorkerProfile[]
+  bookings               Booking[]
+  welfare_fund_ledger    WelfareFundLedger[]
+  admin_profiles         AdminProfile[]
+
+  @@map("cooperative_societies")
+}
+
+model WorkerProfile {
+  id                   String             @id @default(uuid()) @db.Uuid
+  user_id              String             @unique @db.Uuid
+  society_id           String             @db.Uuid
+  status               WorkerStatus       @default(applicant)
+  is_probation         Boolean            @default(true)
+  home_lat             Float
+  home_lng             Float
+  current_lat          Float
+  current_lng          Float
+  is_available         Boolean            @default(false)
+  rolling_avg_rating   Decimal?           @db.Decimal(3, 2)
+  completed_jobs_count Int                @default(0)
+  jobs_this_week_count Int                @default(0)
+  created_at           DateTime           @default(now()) @db.Timestamptz()
+  updated_at           DateTime           @updatedAt @db.Timestamptz()
+
+  user                 User               @relation(fields: [user_id], references: [id], onDelete: Cascade)
+  society              CooperativeSociety @relation(fields: [society_id], references: [id], onDelete: Cascade)
+  skills               WorkerSkill[]
+  job_offers           JobOffer[]
+  job_assignments      JobAssignment[]
+  payouts              Payout[]
+  welfare_claims       WelfareClaim[]
+  ratings              Rating[]
+  kyc_documents        KycDocument[]
+
+  @@map("worker_profiles")
+}
+
+model WorkerSkill {
+  id                 String             @id @default(uuid()) @db.Uuid
+  worker_id          String             @db.Uuid
+  category_id        String             @db.Uuid
+  certification_level CertificationLevel @default(basic)
+  created_at         DateTime           @default(now()) @db.Timestamptz()
+  updated_at         DateTime           @updatedAt @db.Timestamptz()
+
+  worker             WorkerProfile      @relation(fields: [worker_id], references: [id], onDelete: Cascade)
+  category           ServiceCategory    @relation(fields: [category_id], references: [id], onDelete: Cascade)
+
+  @@unique([worker_id, category_id])
+  @@map("worker_skills")
+}
+
+model CustomerProfile {
+  id              String         @id @default(uuid()) @db.Uuid
+  user_id         String         @unique @db.Uuid
+  default_address String?        @db.Text
+  default_lat     Float?
+  default_lng     Float?
+  created_at      DateTime       @default(now()) @db.Timestamptz()
+  updated_at      DateTime       @updatedAt @db.Timestamptz()
+
+  user            User           @relation(fields: [user_id], references: [id], onDelete: Cascade)
+  bookings        Booking[]
+
+  @@map("customer_profiles")
+}
+
+model ServiceCategory {
+  id               String           @id @default(uuid()) @db.Uuid
+  name             String           @unique @db.VarChar(100)
+  icon_key         String           @db.VarChar(50)
+  created_at       DateTime         @default(now()) @db.Timestamptz()
+  updated_at       DateTime         @updatedAt @db.Timestamptz()
+
+  service_listings ServiceListing[]
+  worker_skills    WorkerSkill[]
+
+  @@map("service_categories")
+}
+
+model ServiceListing {
+  id                         String          @id @default(uuid()) @db.Uuid
+  category_id                String          @db.Uuid
+  name                       String          @db.VarChar(255)
+  base_price                 Decimal         @db.Decimal(10, 2)
+  estimated_duration_minutes Int
+  created_at                 DateTime        @default(now()) @db.Timestamptz()
+  updated_at                 DateTime        @updatedAt @db.Timestamptz()
+
+  category                   ServiceCategory @relation(fields: [category_id], references: [id], onDelete: Cascade)
+  bookings                   Booking[]
+
+  @@map("service_listings")
+}
+
+model Booking {
+  id                   String             @id @default(uuid()) @db.Uuid
+  customer_id          String             @db.Uuid
+  listing_id           String             @db.Uuid
+  society_id           String             @db.Uuid
+  status               BookingStatus      @default(pending_match)
+  scheduled_slot_start DateTime           @db.Timestamptz()
+  service_lat          Float
+  service_lng          Float
+  service_address_text String             @db.Text
+  total_price          Decimal            @db.Decimal(10, 2)
+  created_at           DateTime           @default(now()) @db.Timestamptz()
+  updated_at           DateTime           @updatedAt @db.Timestamptz()
+
+  customer             CustomerProfile    @relation(fields: [customer_id], references: [id], onDelete: Cascade)
+  listing              ServiceListing     @relation(fields: [listing_id], references: [id], onDelete: Cascade)
+  society              CooperativeSociety @relation(fields: [society_id], references: [id], onDelete: Cascade)
+
+  job_offers           JobOffer[]
+  job_assignment       JobAssignment?
+  payment              Payment?
+  rating               Rating?
+  disputes             Dispute[]
+
+  @@map("bookings")
+}
+
+model JobOffer {
+  id               String         @id @default(uuid()) @db.Uuid
+  booking_id       String         @db.Uuid
+  worker_id        String         @db.Uuid
+  fair_match_score Decimal        @db.Decimal(5, 4)
+  score_breakdown  Json
+  status           JobOfferStatus @default(pending)
+  offered_at       DateTime       @default(now()) @db.Timestamptz()
+  responded_at     DateTime?      @db.Timestamptz()
+
+  booking          Booking        @relation(fields: [booking_id], references: [id], onDelete: Cascade)
+  worker           WorkerProfile  @relation(fields: [worker_id], references: [id], onDelete: Cascade)
+
+  @@map("job_offers")
+}
+
+model JobAssignment {
+  id           String              @id @default(uuid()) @db.Uuid
+  booking_id   String              @unique @db.Uuid
+  worker_id    String              @db.Uuid
+  status       JobAssignmentStatus
+  started_at   DateTime?           @db.Timestamptz()
+  completed_at DateTime?           @db.Timestamptz()
+  created_at   DateTime            @default(now()) @db.Timestamptz()
+  updated_at   DateTime            @updatedAt @db.Timestamptz()
+
+  booking      Booking             @relation(fields: [booking_id], references: [id], onDelete: Cascade)
+  worker       WorkerProfile       @relation(fields: [worker_id], references: [id], onDelete: Cascade)
+
+  @@map("job_assignments")
+}
+
+model Payment {
+  id                          String              @id @default(uuid()) @db.Uuid
+  booking_id                  String              @unique @db.Uuid
+  razorpay_order_id           String              @db.VarChar(255)
+  amount                      Decimal             @db.Decimal(10, 2)
+  status                      PaymentStatus
+  worker_payout_amount        Decimal             @db.Decimal(10, 2)
+  tech_ops_fee_amount         Decimal             @db.Decimal(10, 2)
+  welfare_contribution_amount Decimal             @db.Decimal(10, 2)
+  federation_fee_amount       Decimal             @db.Decimal(10, 2)
+  created_at                  DateTime            @default(now()) @db.Timestamptz()
+  updated_at                  DateTime            @updatedAt @db.Timestamptz()
+
+  booking                     Booking             @relation(fields: [booking_id], references: [id], onDelete: Cascade)
+  payouts                     Payout[]
+  welfare_fund_entries        WelfareFundLedger[]
+
+  @@map("payments")
+}
+
+model Payout {
+  id         String       @id @default(uuid()) @db.Uuid
+  worker_id  String       @db.Uuid
+  payment_id String       @db.Uuid
+  amount     Decimal      @db.Decimal(10, 2)
+  status     PayoutStatus @default(pending)
+  paid_at    DateTime?    @db.Timestamptz()
+  created_at DateTime     @default(now()) @db.Timestamptz()
+  updated_at DateTime     @updatedAt @db.Timestamptz()
+
+  worker     WorkerProfile @relation(fields: [worker_id], references: [id], onDelete: Cascade)
+  payment    Payment       @relation(fields: [payment_id], references: [id], onDelete: Cascade)
+
+  @@map("payouts")
+}
+
+model WelfareFundLedger {
+  id                 String             @id @default(uuid()) @db.Uuid
+  society_id         String             @db.Uuid
+  entry_type         WelfareEntryType
+  amount             Decimal            @db.Decimal(10, 2)
+  related_payment_id String?            @db.Uuid
+  related_claim_id   String?            @db.Uuid
+  running_balance    Decimal            @db.Decimal(12, 2)
+  created_at         DateTime           @default(now()) @db.Timestamptz()
+  updated_at         DateTime           @updatedAt @db.Timestamptz()
+
+  society            CooperativeSociety @relation(fields: [society_id], references: [id], onDelete: Cascade)
+  related_payment    Payment?           @relation(fields: [related_payment_id], references: [id])
+  related_claim      WelfareClaim?      @relation(fields: [related_claim_id], references: [id])
+
+  @@map("welfare_fund_ledger")
+}
+
+model WelfareClaim {
+  id           String               @id @default(uuid()) @db.Uuid
+  worker_id    String               @db.Uuid
+  category     WelfareClaimCategory
+  description  String               @db.Text
+  document_url String?              @db.VarChar(500)
+  status       WelfareClaimStatus   @default(filed)
+  reviewed_by  String?              @db.Uuid
+  review_note  String?              @db.Text
+  created_at   DateTime             @default(now()) @db.Timestamptz()
+  updated_at   DateTime             @updatedAt @db.Timestamptz()
+
+  worker       WorkerProfile        @relation(fields: [worker_id], references: [id], onDelete: Cascade)
+  reviewer     User?                @relation("AdminClaimReviews", fields: [reviewed_by], references: [id])
+  ledger_entries WelfareFundLedger[]
+
+  @@map("welfare_claims")
+}
+
+model Rating {
+  id                 String        @id @default(uuid()) @db.Uuid
+  booking_id         String        @unique @db.Uuid
+  worker_id          String        @db.Uuid
+  stars              Int           @db.SmallInt
+  comment            String?       @db.Text
+  flagged_for_review Boolean       @default(false)
+  created_at         DateTime      @default(now()) @db.Timestamptz()
+  updated_at         DateTime      @updatedAt @db.Timestamptz()
+
+  booking            Booking       @relation(fields: [booking_id], references: [id], onDelete: Cascade)
+  worker             WorkerProfile @relation(fields: [worker_id], references: [id], onDelete: Cascade)
+
+  @@map("ratings")
+}
+
+model Dispute {
+  id               String          @id @default(uuid()) @db.Uuid
+  booking_id       String          @db.Uuid
+  filed_by_user_id String          @db.Uuid
+  category         DisputeCategory
+  description      String          @db.Text
+  evidence_urls    String[]
+  status           DisputeStatus   @default(filed)
+  sla_deadline     DateTime        @db.Timestamptz()
+  created_at       DateTime        @default(now()) @db.Timestamptz()
+  updated_at       DateTime        @updatedAt @db.Timestamptz()
+
+  booking          Booking         @relation(fields: [booking_id], references: [id], onDelete: Cascade)
+  filed_by         User            @relation("UserDisputes", fields: [filed_by_user_id], references: [id], onDelete: Cascade)
+
+  @@map("disputes")
+}
+
+model KycDocument {
+  id                  String                @id @default(uuid()) @db.Uuid
+  worker_id           String                @db.Uuid
+  doc_type            KycDocType
+  storage_url         String                @db.VarChar(500)
+  verification_status KycVerificationStatus @default(pending)
+  verified_via        KycVerifiedVia        @default(manual)
+  created_at          DateTime              @default(now()) @db.Timestamptz()
+  updated_at          DateTime              @updatedAt @db.Timestamptz()
+
+  worker              WorkerProfile         @relation(fields: [worker_id], references: [id], onDelete: Cascade)
+
+  @@map("kyc_documents")
+}
+
+model Notification {
+  id         String    @id @default(uuid()) @db.Uuid
+  user_id    String    @db.Uuid
+  type       String    @db.VarChar(50)
+  payload    Json
+  read_at    DateTime? @db.Timestamptz()
+  created_at DateTime  @default(now()) @db.Timestamptz()
+
+  user       User      @relation(fields: [user_id], references: [id], onDelete: Cascade)
+
+  @@map("notifications")
+}
