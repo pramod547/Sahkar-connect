@@ -11,6 +11,7 @@ import authPlugin from './plugins/auth';
 import rbacPlugin from './plugins/rbac';
 
 import authRoutes from './modules/auth/auth.routes';
+import bookingRoutes from './modules/booking/booking.routes';
 
 const port = Number(process.env.PORT) || 4000;
 const host = process.env.HOST || '0.0.0.0';
@@ -70,6 +71,7 @@ async function bootstrap() {
     });
 
     await server.register(authRoutes, { prefix: '/api/v1/auth' });
+    await server.register(bookingRoutes, { prefix: '/api/v1' });
 
     // 5. Start Server
     await server.listen({ port, host });

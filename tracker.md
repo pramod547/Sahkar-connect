@@ -23,35 +23,35 @@ Legend: 🔴 To Do · 🟡 In Progress · 🟢 Done · ⚪ Cut (deliberately des
 
 | ID | Task | Owner | Status |
 |----|------|-------|--------|
-| P1-1 | Customer web: browse services, category pages | | 🔴 |
-| P1-2 | Customer web: booking flow (slot select → confirm) | | 🔴 |
-| P1-3 | Backend: Fair-Match Engine v1 (proximity + rotation score) | | 🔴 |
-| P1-4 | Worker app: job offer push (Socket.io) + accept/reject | | 🔴 |
-| P1-5 | Worker app: status updates (en route → arrived → in progress → done) | | 🔴 |
-| P1-6 | Customer web: live job status tracking screen | | 🔴 |
-| P1-7 | Admin dashboard: worker onboarding + approval queue | | 🔴 |
-| P1-8 | Admin dashboard: live jobs monitor (society-scoped) | | 🔴 |
+| P1-1 | Customer web: browse services, category pages | | 🟢 |
+| P1-2 | Customer web: booking flow (slot select → confirm) | | 🟢 |
+| P1-3 | Backend: Fair-Match Engine v1 (proximity + rotation score) | | 🟢 |
+| P1-4 | Worker app: job offer push (Socket.io) + accept/reject | | 🟢 |
+| P1-5 | Worker app: status updates (en route → arrived → in progress → done) | | 🟢 |
+| P1-6 | Customer web: live job status tracking screen | | 🟢 |
+| P1-7 | Admin dashboard: worker onboarding + approval queue | | 🟢 |
+| P1-8 | Admin dashboard: live jobs monitor (society-scoped) | | 🟢 |
 
 ## Phase 2 — Money & Trust
 
 | ID | Task | Owner | Status |
 |----|------|-------|--------|
-| P2-1 | Razorpay test-mode integration, escrow-style hold-on-book | | 🔴 |
-| P2-2 | Commission split logic (12% → 5/4/3) on payment capture | | 🔴 |
-| P2-3 | Worker payout ledger + payout screen | | 🔴 |
-| P2-4 | Rating system (rolling avg, min-job-count safeguard) | | 🔴 |
-| P2-5 | Welfare fund ledger + claim request flow (admin-approved) | | 🔴 |
-| P2-6 | Dispute filing (customer or worker) + society-admin resolution UI | | 🔴 |
+| P2-1 | Razorpay test-mode integration, escrow-style hold-on-book | | 🟢 |
+| P2-2 | Commission split logic (12% → 5/4/3) on payment capture | | 🟢 |
+| P2-3 | Worker payout ledger + payout screen | | 🟢 |
+| P2-4 | Rating system (rolling avg, min-job-count safeguard) | | 🟢 |
+| P2-5 | Welfare fund ledger + claim request flow (admin-approved) | | 🟢 |
+| P2-6 | Dispute filing (customer or worker) + society-admin resolution UI | | 🟢 |
 
 ## Phase 3 — Cooperative Differentiators
 
 | ID | Task | Owner | Status |
 |----|------|-------|--------|
-| P3-1 | Fair-Match explainability panel (admin can see why worker X got job Y) | | 🔴 |
-| P3-2 | Federation-level dashboard (aggregate across societies) | | 🔴 |
-| P3-3 | KYC document upload + mock e-Shram/DigiLocker lookup | | 🔴 |
-| P3-4 | Voice-first regional-language assistant (worker app, Hindi/Marathi) | | 🔴 |
-| P3-5 | Fraud/no-show anomaly flag (simple rule-based v1, model-based stretch) | | 🔴 |
+| P3-1 | Fair-Match explainability panel (admin can see why worker X got job Y) | | 🟢 |
+| P3-2 | Federation-level dashboard (aggregate across societies) | | 🟢 |
+| P3-3 | KYC document upload + mock e-Shram/DigiLocker lookup | | 🟢 |
+| P3-4 | Voice-first regional-language assistant (worker app, Hindi/Marathi) | | 🟢 |
+| P3-5 | Fraud/no-show anomaly flag (simple rule-based v1, model-based stretch) | | 🟢 |
 
 ## Phase 4 — Polish for Pitch
 
