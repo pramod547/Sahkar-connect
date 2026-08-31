@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --coop-teal-900: #0B4F4A;
+  --coop-teal-600: #147D74;
+  --coop-saffron-500: #E8A33D;
+  --coop-cream-50: #FBF7EF;
+  --coop-charcoal-800: #2B2B2B;
+  --coop-success-600: #2E8B57;
+  --coop-warning-500: #D97706;
+  --coop-danger-600: #C0392B;
+}
+
+body {
+  background-color: #f3f4f6;
+  color: var(--coop-charcoal-800);
+}
