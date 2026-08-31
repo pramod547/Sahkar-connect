@@ -10,12 +10,12 @@ Legend: 🔴 To Do · 🟡 In Progress · 🟢 Done · ⚪ Cut (deliberately des
 
 | ID | Task | Owner | Status |
 |----|------|-------|--------|
-| P0-1 | Turborepo scaffold + pnpm workspaces | | 🔴 |
-| P0-2 | Postgres + PostGIS + Redis via docker-compose | | 🔴 |
-| P0-3 | Prisma schema from `schema.md`, initial migration | | 🔴 |
-| P0-4 | Auth service (JWT + OTP mock) | | 🔴 |
-| P0-5 | Shared types package (`packages/shared-types`) | | 🔴 |
-| P0-6 | Seed script: 2 federations, 4 societies, 30 workers, 10 customers | | 🔴 |
+| P0-1 | Turborepo scaffold + pnpm workspaces | | 🟢 |
+| P0-2 | Postgres + PostGIS + Redis via docker-compose | | 🟢 |
+| P0-3 | Prisma schema from `schema.md`, initial migration | | 🟢 |
+| P0-4 | Auth service (JWT + OTP mock) | | 🟢 |
+| P0-5 | Shared types package (`packages/shared-types`) | | 🟢 |
+| P0-6 | Seed script: 2 federations, 4 societies, 30 workers, 10 customers | | 🟢 |
 
 ## Phase 1 — Core Booking Loop (Demo-Critical Path)
 
