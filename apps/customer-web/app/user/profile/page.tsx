@@ -65,7 +65,7 @@ export default function UserProfilePage() {
       </div>
 
       {/* User Info Card */}
-      <div className="bg-white p-5 rounded-2xl border border-gray-200 shadow-md mb-5">
+      <div className="bg-white p-5 rounded-2xl border border-gray-200 shadow-md mb-4">
         <div className="flex items-start justify-between">
           <div>
             <h2 className="text-lg font-extrabold text-[#1B5E4B]">{userSession.name}</h2>
@@ -80,6 +80,27 @@ export default function UserProfilePage() {
           </div>
         </div>
       </div>
+
+      {/* Privacy & High Security Controls Button */}
+      <Link
+        href="/user/privacy"
+        className="bg-white p-4 rounded-2xl border border-gray-200 shadow-xs hover:border-[#1B5E4B] transition flex items-center justify-between mb-5 group cursor-pointer"
+      >
+        <div className="flex items-center space-x-3">
+          <div className="w-9 h-9 rounded-xl bg-emerald-50 text-[#1B5E4B] flex items-center justify-center shrink-0">
+            <ShieldCheck className="w-5 h-5" />
+          </div>
+          <div>
+            <span className="text-xs font-extrabold text-[#1B5E4B] block leading-tight">
+              Privacy & High Security Controls
+            </span>
+            <span className="text-[10px] text-gray-500">
+              DPDP Act 2023 • Identity Masking • Session Inspector
+            </span>
+          </div>
+        </div>
+        <ArrowRight className="w-4 h-4 text-gray-400 group-hover:text-[#1B5E4B] group-hover:translate-x-0.5 transition" />
+      </Link>
 
       {/* Booking History & Feedback Prompts */}
       <div className="mb-5">
