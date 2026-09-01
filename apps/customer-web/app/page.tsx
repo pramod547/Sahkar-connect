@@ -33,6 +33,8 @@ const TOP_WORKERS: Worker[] = [
     workerType: 'government',
     isVerified: true,
     completedJobs: 142,
+    area: 'Bandra West',
+    city: 'Mumbai',
   },
   {
     id: 'w-102',
@@ -47,6 +49,8 @@ const TOP_WORKERS: Worker[] = [
     companyName: 'Apex Facility Solutions',
     isVerified: true,
     completedJobs: 98,
+    area: 'Bandra West',
+    city: 'Mumbai',
   },
 ];
 

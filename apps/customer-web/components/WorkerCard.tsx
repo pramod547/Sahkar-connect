@@ -18,6 +18,8 @@ export interface Worker {
   photoUrl?: string;
   isVerified: boolean;
   completedJobs: number;
+  area: string;
+  city: string;
 }
 
 export const WorkerCard: React.FC<{ worker: Worker; onBook?: (worker: Worker) => void }> = ({
@@ -81,13 +83,17 @@ export const WorkerCard: React.FC<{ worker: Worker; onBook?: (worker: Worker) =>
           </div>
         </div>
 
-        {/* Worker Type Badge */}
-        <div className="mb-3">
+        {/* Worker Type & Location Badge */}
+        <div className="mb-3 flex items-center justify-between">
           <span
             className={`inline-flex items-center space-x-1 px-2.5 py-0.5 rounded-full text-[10px] font-bold border ${badge.bg}`}
           >
             <BadgeIcon className="w-3 h-3" />
             <span>{badge.label}</span>
+          </span>
+
+          <span className="text-[10px] text-gray-500 font-medium flex items-center bg-gray-100 px-2 py-0.5 rounded-md">
+            📍 {worker.area}, {worker.city}
           </span>
         </div>
 
