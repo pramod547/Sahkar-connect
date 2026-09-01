@@ -34,13 +34,13 @@ export default function WorkersAdminPage() {
   return (
     <div className="p-8 max-w-7xl mx-auto w-full">
       <header className="mb-8 pb-4 border-b border-gray-200">
-        <h1 className="text-2xl font-bold text-[#0B4F4A]">Worker Verification & Approval Queue</h1>
+        <h1 className="text-2xl font-bold text-[#1B5E4B]">Worker Verification & Approval Queue</h1>
         <p className="text-sm text-gray-600">Society Admin KYC & Certification Verification</p>
       </header>
 
       <div className="bg-white rounded-xl border border-gray-200 shadow-sm overflow-hidden">
         <table className="w-full text-left text-sm">
-          <thead className="bg-[#0B4F4A] text-white uppercase text-xs">
+          <thead className="bg-[#1B5E4B] text-white uppercase text-xs">
             <tr>
               <th className="p-4">Worker Name</th>
               <th className="p-4">Phone</th>
@@ -55,19 +55,19 @@ export default function WorkersAdminPage() {
               <tr key={w.id} className="hover:bg-gray-50 transition">
                 <td className="p-4 font-semibold text-gray-900">{w.name}</td>
                 <td className="p-4 text-gray-600">{w.phone}</td>
-                <td className="p-4 font-medium text-[#0B4F4A]">{w.trade}</td>
+                <td className="p-4 font-medium text-[#1B5E4B]">{w.trade}</td>
                 <td className="p-4">
                   <span className="inline-flex items-center text-xs font-semibold bg-gray-100 text-gray-700 px-2.5 py-1 rounded-md border border-gray-200">
-                    <FileText className="w-3.5 h-3.5 mr-1 text-[#0B4F4A]" /> {w.kycType} (MOCK)
+                    <FileText className="w-3.5 h-3.5 mr-1 text-[#1B5E4B]" /> {w.kycType} (MOCK)
                   </span>
                 </td>
                 <td className="p-4">
                   {w.status === 'active' ? (
-                    <span className="inline-flex items-center text-xs font-bold bg-[#2E8B57]/10 text-[#2E8B57] px-2.5 py-1 rounded-full">
+                    <span className="inline-flex items-center text-xs font-bold bg-[#1B5E4B]/10 text-[#1B5E4B] px-2.5 py-1 rounded-full">
                       <CheckCircle className="w-3.5 h-3.5 mr-1" /> Active
                     </span>
                   ) : (
-                    <span className="inline-flex items-center text-xs font-bold bg-[#E8A33D]/10 text-[#E8A33D] px-2.5 py-1 rounded-full">
+                    <span className="inline-flex items-center text-xs font-bold bg-[#C67B4C]/10 text-[#C67B4C] px-2.5 py-1 rounded-full">
                       <Clock className="w-3.5 h-3.5 mr-1" /> Pending Verification
                     </span>
                   )}
@@ -76,7 +76,7 @@ export default function WorkersAdminPage() {
                   {w.status !== 'active' && (
                     <button
                       onClick={() => handleApproveWorker(w.id)}
-                      className="bg-[#2E8B57] hover:bg-[#246e44] text-white text-xs font-bold px-3 py-1.5 rounded-lg shadow transition inline-flex items-center"
+                      className="bg-[#1B5E4B] hover:bg-[#7BA68D] text-white text-xs font-bold px-3 py-1.5 rounded-lg shadow transition inline-flex items-center cursor-pointer"
                     >
                       <UserCheck className="w-3.5 h-3.5 mr-1" /> Approve Worker
                     </button>

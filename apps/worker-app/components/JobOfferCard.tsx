@@ -110,7 +110,7 @@ const styles = StyleSheet.create({
     padding: 18,
     borderRadius: 16,
     borderWidth: 2,
-    borderColor: '#E8A33D',
+    borderColor: '#C67B4C',
     marginBottom: 16,
     elevation: 4,
   },
@@ -121,7 +121,7 @@ const styles = StyleSheet.create({
     marginBottom: 8,
   },
   badge: {
-    backgroundColor: '#E8A33D',
+    backgroundColor: '#C67B4C',
     paddingHorizontal: 8,
     paddingVertical: 4,
     borderRadius: 4,
@@ -132,14 +132,14 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   timer: {
-    color: '#C0392B',
+    color: '#C67B4C',
     fontWeight: 'bold',
     fontSize: 14,
   },
   title: {
     fontSize: 18,
     fontWeight: 'bold',
-    color: '#0B4F4A',
+    color: '#1B5E4B',
   },
   address: {
     fontSize: 13,
@@ -148,7 +148,7 @@ const styles = StyleSheet.create({
     marginBottom: 12,
   },
   priceContainer: {
-    backgroundColor: '#FBF7EF',
+    backgroundColor: '#F5ECD7',
     padding: 12,
     borderRadius: 8,
     flexDirection: 'row',
@@ -163,7 +163,7 @@ const styles = StyleSheet.create({
   payout: {
     fontSize: 20,
     fontWeight: 'bold',
-    color: '#2E8B57',
+    color: '#1B5E4B',
   },
   totalPrice: {
     fontSize: 11,
@@ -178,16 +178,16 @@ const styles = StyleSheet.create({
     paddingVertical: 12,
     borderRadius: 8,
     borderWidth: 1,
-    borderColor: '#C0392B',
+    borderColor: '#C67B4C',
     alignItems: 'center',
   },
   rejectText: {
-    color: '#C0392B',
+    color: '#C67B4C',
     fontWeight: 'bold',
   },
   acceptButton: {
     flex: 2,
-    backgroundColor: '#E8A33D',
+    backgroundColor: '#1B5E4B',
     paddingVertical: 12,
     borderRadius: 8,
     alignItems: 'center',
@@ -204,14 +204,14 @@ const styles = StyleSheet.create({
     padding: 20,
   },
   modalContent: {
-    backgroundColor: '#FFFFFF',
+    backgroundColor: '#FEFAF3',
     borderRadius: 16,
     padding: 20,
   },
   modalTitle: {
     fontSize: 16,
     fontWeight: 'bold',
-    color: '#0B4F4A',
+    color: '#1B5E4B',
   },
   modalSub: {
     fontSize: 12,
@@ -224,10 +224,11 @@ const styles = StyleSheet.create({
     borderColor: '#E5E7EB',
     borderRadius: 8,
     marginBottom: 8,
+    backgroundColor: '#FFFFFF',
   },
   reasonSelected: {
-    borderColor: '#0B4F4A',
-    backgroundColor: '#FBF7EF',
+    borderColor: '#1B5E4B',
+    backgroundColor: '#F5ECD7',
   },
   reasonText: {
     fontSize: 14,
@@ -246,7 +247,7 @@ const styles = StyleSheet.create({
     color: '#666666',
   },
   confirmRejectBtn: {
-    backgroundColor: '#C0392B',
+    backgroundColor: '#C67B4C',
     paddingHorizontal: 16,
     paddingVertical: 10,
     borderRadius: 8,

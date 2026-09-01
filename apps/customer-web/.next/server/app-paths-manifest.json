@@ -1,0 +1,6 @@
+{
+  "/page": "app/page.js",
+  "/track/[bookingId]/page": "app/track/[bookingId]/page.js",
+  "/booking/[listingId]/page": "app/booking/[listingId]/page.js",
+  "/portal/page": "app/portal/page.js"
+}

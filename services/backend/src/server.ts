@@ -1,5 +1,9 @@
 import dotenv from 'dotenv';
+import path from 'path';
+
 dotenv.config();
+dotenv.config({ path: path.resolve(__dirname, '../.env') });
+dotenv.config({ path: path.resolve(__dirname, '../../.env') });
 
 import Fastify from 'fastify';
 import cors from '@fastify/cors';
@@ -17,15 +21,7 @@ const port = Number(process.env.PORT) || 4000;
 const host = process.env.HOST || '0.0.0.0';
 
 const server = Fastify({
-  logger: {
-    transport:
-      process.env.NODE_ENV === 'development'
-        ? {
-            target: 'pino-pretty',
-            options: { translateTime: 'HH:MM:ss Z', ignore: 'pid,hostname' },
-          }
-        : undefined,
-  },
+  logger: true,
 });
 
 async function bootstrap() {

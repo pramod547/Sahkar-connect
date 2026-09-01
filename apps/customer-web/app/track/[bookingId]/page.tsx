@@ -25,7 +25,7 @@ export default function TrackBookingPage() {
       <div>
         <button
           onClick={() => router.push('/')}
-          className="flex items-center text-sm font-semibold text-[#0B4F4A] mb-4 hover:underline"
+          className="flex items-center text-sm font-semibold text-[#1B5E4B] mb-4 hover:underline"
         >
           <ArrowLeft className="w-4 h-4 mr-1" /> Back to Home
         </button>
@@ -33,14 +33,14 @@ export default function TrackBookingPage() {
         <div className="bg-white p-4 rounded-xl border border-gray-200 shadow-sm mb-4">
           <div className="flex justify-between items-center mb-2">
             <span className="text-xs font-bold text-gray-500 uppercase">Booking #{bookingId.slice(0, 8)}</span>
-            <span className="bg-[#2E8B57]/10 text-[#2E8B57] text-xs font-bold px-2.5 py-1 rounded-full uppercase">
+            <span className="bg-[#1B5E4B]/10 text-[#1B5E4B] text-xs font-bold px-2.5 py-1 rounded-full uppercase">
               {status.replace('_', ' ')}
             </span>
           </div>
 
-          <h1 className="text-lg font-bold text-[#0B4F4A]">Fan Installation & Repair</h1>
+          <h1 className="text-lg font-bold text-[#1B5E4B]">Fan Installation & Repair</h1>
           <p className="text-xs text-gray-500 mt-1 flex items-center">
-            <MapPin className="w-3.5 h-3.5 mr-1 text-[#0B4F4A]" /> Bandra West, Mumbai
+            <MapPin className="w-3.5 h-3.5 mr-1 text-[#1B5E4B]" /> Bandra West, Mumbai
           </p>
         </div>
 
@@ -56,25 +56,25 @@ export default function TrackBookingPage() {
             <div className="flex items-start justify-between">
               <div>
                 <div className="flex items-center space-x-1.5 mb-1">
-                  <ShieldCheck className="w-4 h-4 text-[#2E8B57]" />
-                  <span className="text-xs font-bold text-[#0B4F4A]">Society Verified Worker</span>
+                  <ShieldCheck className="w-4 h-4 text-[#1B5E4B]" />
+                  <span className="text-xs font-bold text-[#1B5E4B]">Society Verified Worker</span>
                 </div>
                 <h3 className="text-base font-bold text-gray-900">{worker.name}</h3>
                 <p className="text-xs text-gray-600">{worker.societyName}</p>
                 <div className="flex items-center space-x-3 mt-2 text-xs text-gray-600">
-                  <span className="flex items-center text-[#E8A33D] font-bold">
-                    <Star className="w-3.5 h-3.5 fill-[#E8A33D] mr-1" /> {worker.rating}
+                  <span className="flex items-center text-[#D4A843] font-bold">
+                    <Star className="w-3.5 h-3.5 fill-[#D4A843] mr-1" /> {worker.rating}
                   </span>
                   <span>•</span>
                   <span>{worker.completedJobs} Jobs Completed</span>
                   <span>•</span>
-                  <span className="text-[#0B4F4A] font-medium">Member since {worker.memberSince}</span>
+                  <span className="text-[#1B5E4B] font-medium">Member since {worker.memberSince}</span>
                 </div>
               </div>
 
               <a
                 href={`tel:${worker.phone}`}
-                className="bg-[#0B4F4A] text-white p-3 rounded-full shadow hover:bg-[#147D74] transition"
+                className="bg-[#1B5E4B] text-white p-3 rounded-full shadow hover:bg-[#7BA68D] transition"
               >
                 <Phone className="w-4 h-4" />
               </a>
@@ -83,9 +83,9 @@ export default function TrackBookingPage() {
         )}
       </div>
 
-      <div className="bg-[#FBF7EF] p-3 rounded-xl border border-[#E8A33D]/30 text-center">
+      <div className="bg-[#F5ECD7]/80 p-3 rounded-xl border border-[#C67B4C]/30 text-center">
         <p className="text-xs text-gray-700">
-          Fairly dispatched by <strong className="text-[#0B4F4A]">SahakarConnect Fair-Match Engine</strong> based on rotation fairness & proximity.
+          Fairly dispatched by <strong className="text-[#1B5E4B]">SahakarConnect Fair-Match Engine</strong> based on rotation fairness & proximity.
         </p>
       </div>
     </div>

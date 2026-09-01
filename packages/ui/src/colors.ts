@@ -1,11 +1,20 @@
 export const colors = {
-  coopTeal900: '#0B4F4A',
-  coopTeal600: '#147D74',
-  coopSaffron500: '#E8A33D',
-  coopCream50: '#FBF7EF',
+  coopForestGreen: '#1B5E4B',
+  coopSageGreen: '#7BA68D',
+  coopTerracotta: '#C67B4C',
+  coopWarmSand: '#F5ECD7',
+  coopCreamWhite: '#FEFAF3',
+  coopWarmAmber: '#D4A843',
+  coopDeepCharcoal: '#2B2B2B',
+  coopMutedGray: '#8A8A8A',
+  // Backward compatibility alias keys
+  coopTeal900: '#1B5E4B',
+  coopTeal600: '#7BA68D',
+  coopSaffron500: '#C67B4C',
+  coopCream50: '#FEFAF3',
   coopCharcoal800: '#2B2B2B',
-  coopSuccess600: '#2E8B57',
-  coopWarning500: '#D97706',
+  coopSuccess600: '#1B5E4B',
+  coopWarning500: '#C67B4C',
   coopDanger600: '#C0392B',
 } as const;
 

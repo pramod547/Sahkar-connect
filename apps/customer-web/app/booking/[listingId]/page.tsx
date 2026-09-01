@@ -62,16 +62,16 @@ export default function BookingPage() {
       <div>
         <button
           onClick={() => router.back()}
-          className="flex items-center text-sm font-semibold text-[#0B4F4A] mb-4 hover:underline"
+          className="flex items-center text-sm font-semibold text-[#1B5E4B] mb-4 hover:underline"
         >
           <ArrowLeft className="w-4 h-4 mr-1" /> Back to Services
         </button>
 
         <div className="bg-white p-4 rounded-xl border border-gray-200 shadow-sm mb-4">
-          <span className="text-xs font-bold text-[#E8A33D] uppercase tracking-wider">
+          <span className="text-xs font-bold text-[#C67B4C] uppercase tracking-wider">
             {listing.category_name}
           </span>
-          <h1 className="text-xl font-bold text-[#0B4F4A] mt-1">{listing.name}</h1>
+          <h1 className="text-xl font-bold text-[#1B5E4B] mt-1">{listing.name}</h1>
           <p className="text-xs text-gray-500 mt-1">Est. Duration: {listing.estimated_duration_minutes} mins</p>
         </div>
 
@@ -81,20 +81,20 @@ export default function BookingPage() {
         {/* Address Input */}
         <div className="bg-white p-4 rounded-xl border border-gray-200 shadow-sm mb-4">
           <label className="text-xs font-semibold text-gray-500 uppercase flex items-center mb-2">
-            <MapPin className="w-3.5 h-3.5 text-[#0B4F4A] mr-1" /> Service Address
+            <MapPin className="w-3.5 h-3.5 text-[#1B5E4B] mr-1" /> Service Address
           </label>
           <input
             type="text"
             value={address}
             onChange={(e) => setAddress(e.target.value)}
-            className="w-full text-sm p-2 border border-gray-300 rounded-lg focus:outline-none focus:border-[#0B4F4A]"
+            className="w-full text-sm p-2 border border-gray-300 rounded-lg focus:outline-none focus:border-[#1B5E4B]"
           />
         </div>
 
         {/* Time Slot Input */}
         <div className="bg-white p-4 rounded-xl border border-gray-200 shadow-sm mb-4">
           <label className="text-xs font-semibold text-gray-500 uppercase flex items-center mb-2">
-            <Calendar className="w-3.5 h-3.5 text-[#0B4F4A] mr-1" /> Time Slot
+            <Calendar className="w-3.5 h-3.5 text-[#1B5E4B] mr-1" /> Time Slot
           </label>
           <div className="grid grid-cols-2 gap-2">
             {['Today, 4:00 PM', 'Today, 6:00 PM', 'Tomorrow, 10:00 AM'].map((s) => (
@@ -103,7 +103,7 @@ export default function BookingPage() {
                 onClick={() => setSlot(s)}
                 className={`text-xs p-2.5 rounded-lg border font-medium transition ${
                   slot === s
-                    ? 'border-[#0B4F4A] bg-[#0B4F4A] text-white'
+                    ? 'border-[#1B5E4B] bg-[#1B5E4B] text-white shadow-xs'
                     : 'border-gray-200 bg-gray-50 text-gray-700'
                 }`}
               >
@@ -118,10 +118,10 @@ export default function BookingPage() {
         <button
           onClick={handleConfirmBooking}
           disabled={isSubmitting}
-          className="w-full bg-[#E8A33D] hover:bg-[#d49232] text-white font-bold py-3.5 px-4 rounded-xl shadow-lg transition flex items-center justify-center space-x-2"
+          className="w-full bg-[#1B5E4B] hover:bg-[#7BA68D] text-white font-bold py-3.5 px-4 rounded-xl shadow-lg transition flex items-center justify-center space-x-2 cursor-pointer"
         >
           <Check className="w-5 h-5" />
-          <span>{isSubmitting ? 'Dispatching Fair-Match...' : 'Confirm Booking & Dispatch'}</span>
+          <span>{isSubmitting ? 'Dispatching Fair-Match...' : 'Confirm Booking — Fair Pay Guaranteed'}</span>
         </button>
       </div>
     </div>

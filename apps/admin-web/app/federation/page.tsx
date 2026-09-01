@@ -40,15 +40,15 @@ export default function FederationOverviewAdminPage() {
       <header className="flex justify-between items-center mb-8 pb-4 border-b border-gray-200">
         <div>
           <div className="flex items-center space-x-2">
-            <Building2 className="w-6 h-6 text-[#0B4F4A]" />
-            <h1 className="text-2xl font-bold text-[#0B4F4A]">{federationOverview.name}</h1>
+            <Building2 className="w-6 h-6 text-[#1B5E4B]" />
+            <h1 className="text-2xl font-bold text-[#1B5E4B]">{federationOverview.name}</h1>
           </div>
           <p className="text-xs text-gray-500 mt-1">
             NCCT Registration: {federationOverview.ncctReg} • Aggregate Federation Oversight
           </p>
         </div>
 
-        <button className="bg-[#0B4F4A] text-white text-xs font-bold px-4 py-2 rounded-lg shadow hover:bg-[#147D74] flex items-center">
+        <button className="bg-[#1B5E4B] text-white text-xs font-bold px-4 py-2 rounded-lg shadow hover:bg-[#7BA68D] flex items-center cursor-pointer">
           <FileSpreadsheet className="w-4 h-4 mr-1.5" /> Export NCCT Audit Report
         </button>
       </header>
@@ -57,36 +57,36 @@ export default function FederationOverviewAdminPage() {
       <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
         <div className="bg-white p-5 rounded-xl border border-gray-200 shadow-sm">
           <span className="text-xs font-semibold text-gray-500 uppercase tracking-wider">Affiliated Societies</span>
-          <p className="text-2xl font-bold text-[#0B4F4A] mt-1">{federationOverview.totalSocieties}</p>
+          <p className="text-2xl font-bold text-[#1B5E4B] mt-1">{federationOverview.totalSocieties}</p>
         </div>
         <div className="bg-white p-5 rounded-xl border border-gray-200 shadow-sm">
           <span className="text-xs font-semibold text-gray-500 uppercase tracking-wider">Total Registered Workers</span>
-          <p className="text-2xl font-bold text-[#0B4F4A] mt-1">{federationOverview.totalWorkers}</p>
+          <p className="text-2xl font-bold text-[#1B5E4B] mt-1">{federationOverview.totalWorkers}</p>
         </div>
         <div className="bg-white p-5 rounded-xl border border-gray-200 shadow-sm">
           <span className="text-xs font-semibold text-gray-500 uppercase tracking-wider">Live Active Jobs</span>
-          <p className="text-2xl font-bold text-[#2E8B57] mt-1">{federationOverview.activeJobs}</p>
+          <p className="text-2xl font-bold text-[#7BA68D] mt-1">{federationOverview.activeJobs}</p>
         </div>
         <div className="bg-white p-5 rounded-xl border border-gray-200 shadow-sm">
           <span className="text-xs font-semibold text-gray-500 uppercase tracking-wider">Combined Welfare Pool</span>
-          <p className="text-2xl font-bold text-[#E8A33D] mt-1">{federationOverview.totalWelfareFundPool}</p>
+          <p className="text-2xl font-bold text-[#C67B4C] mt-1">{federationOverview.totalWelfareFundPool}</p>
         </div>
       </div>
 
-      <h2 className="text-lg font-bold text-[#0B4F4A] mb-4">Affiliated Member Societies Performance</h2>
+      <h2 className="text-lg font-bold text-[#1B5E4B] mb-4">Affiliated Member Societies Performance</h2>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {federationOverview.societies.map((s) => (
           <div key={s.id} className="bg-white p-6 rounded-xl border border-gray-200 shadow-sm">
             <div className="flex justify-between items-start mb-3">
               <div>
-                <span className="text-[10px] font-bold text-[#E8A33D] uppercase bg-[#FBF7EF] px-2 py-0.5 rounded border border-[#E8A33D]/20">
+                <span className="text-[10px] font-bold text-[#C67B4C] uppercase bg-[#F5ECD7] px-2 py-0.5 rounded border border-[#C67B4C]/20">
                   {s.district}
                 </span>
-                <h3 className="text-base font-bold text-[#0B4F4A] mt-1">{s.name}</h3>
+                <h3 className="text-base font-bold text-[#1B5E4B] mt-1">{s.name}</h3>
                 <p className="text-xs text-gray-500">{s.trade}</p>
               </div>
-              <span className="bg-[#2E8B57]/10 text-[#2E8B57] text-xs font-bold px-2.5 py-1 rounded-full">
+              <span className="bg-[#1B5E4B]/10 text-[#1B5E4B] text-xs font-bold px-2.5 py-1 rounded-full">
                 ★ {s.avgRating} Avg
               </span>
             </div>
@@ -102,7 +102,7 @@ export default function FederationOverviewAdminPage() {
               </div>
               <div>
                 <span className="text-[11px] text-gray-500 block">Welfare Fund</span>
-                <span className="text-base font-bold text-[#0B4F4A]">{s.welfareFundBalance}</span>
+                <span className="text-base font-bold text-[#1B5E4B]">{s.welfareFundBalance}</span>
               </div>
             </div>
           </div>

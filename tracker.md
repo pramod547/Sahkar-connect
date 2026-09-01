@@ -57,11 +57,11 @@ Legend: 🔴 To Do · 🟡 In Progress · 🟢 Done · ⚪ Cut (deliberately des
 
 | ID | Task | Owner | Status |
 |----|------|-------|--------|
-| P4-1 | Offline-tolerant worker app (queue actions, sync on reconnect) | | 🔴 |
-| P4-2 | Empty states, loading states, error states audit | | 🔴 |
-| P4-3 | Demo data reset script (clean slate before judges arrive) | | 🔴 |
-| P4-4 | Record 3-min demo video (backup if live demo fails) | | 🔴 |
-| P4-5 | Deck ↔ prototype consistency check (no claim in deck that prototype can't show) | | 🔴 |
+| P4-1 | Offline-tolerant worker app (queue actions, sync on reconnect) | | 🟢 |
+| P4-2 | Empty states, loading states, error states audit | | 🟢 |
+| P4-3 | Demo data reset script (clean slate before judges arrive) | | 🟢 |
+| P4-4 | Record 3-min demo video (backup if live demo fails) | | 🟢 |
+| P4-5 | Deck ↔ prototype consistency check (no claim in deck that prototype can't show) | | 🟢 |
 
 ---
 

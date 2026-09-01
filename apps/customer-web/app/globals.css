@@ -3,17 +3,24 @@
 @tailwind utilities;
 
 :root {
-  --coop-teal-900: #0B4F4A;
-  --coop-teal-600: #147D74;
-  --coop-saffron-500: #E8A33D;
-  --coop-cream-50: #FBF7EF;
+  --coop-forest-green: #1B5E4B;
+  --coop-sage-green: #7BA68D;
+  --coop-terracotta: #C67B4C;
+  --coop-warm-sand: #F5ECD7;
+  --coop-cream-white: #FEFAF3;
+  --coop-warm-amber: #D4A843;
+  --coop-deep-charcoal: #2B2B2B;
+  --coop-muted-gray: #8A8A8A;
+
+  --coop-teal-900: #1B5E4B;
+  --coop-teal-600: #7BA68D;
+  --coop-saffron-500: #C67B4C;
+  --coop-cream-50: #FEFAF3;
   --coop-charcoal-800: #2B2B2B;
-  --coop-success-600: #2E8B57;
-  --coop-warning-500: #D97706;
-  --coop-danger-600: #C0392B;
 }
 
 body {
-  background-color: var(--coop-cream-50);
-  color: var(--coop-charcoal-800);
+  background-color: var(--coop-cream-white);
+  color: var(--coop-deep-charcoal);
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
 }

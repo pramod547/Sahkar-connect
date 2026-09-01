@@ -41,7 +41,7 @@ export function StatusTimeline({ currentStatus }: StatusTimelineProps) {
       <div className="flex items-center justify-between relative">
         <div className="absolute top-1/2 left-0 right-0 h-1 bg-gray-200 -translate-y-1/2 z-0" />
         <div
-          className="absolute top-1/2 left-0 h-1 bg-[#147D74] -translate-y-1/2 transition-all duration-500 z-0"
+          className="absolute top-1/2 left-0 h-1 bg-[#1B5E4B] -translate-y-1/2 transition-all duration-500 z-0"
           style={{ width: `${(activeIndex / (steps.length - 1)) * 100}%` }}
         />
 
@@ -55,15 +55,15 @@ export function StatusTimeline({ currentStatus }: StatusTimelineProps) {
               <div
                 className={`w-9 h-9 rounded-full flex items-center justify-center border-2 transition-all ${
                   isDone
-                    ? 'bg-[#0B4F4A] border-[#0B4F4A] text-white shadow-md'
+                    ? 'bg-[#1B5E4B] border-[#1B5E4B] text-white shadow-md'
                     : 'bg-white border-gray-300 text-gray-400'
-                } ${isCurrent ? 'ring-4 ring-[#E8A33D]/40 scale-110' : ''}`}
+                } ${isCurrent ? 'ring-4 ring-[#C67B4C]/40 scale-110' : ''}`}
               >
                 <Icon className="w-4 h-4" />
               </div>
               <span
                 className={`text-[11px] font-medium mt-1 text-center ${
-                  isCurrent ? 'text-[#0B4F4A] font-bold' : isDone ? 'text-gray-700' : 'text-gray-400'
+                  isCurrent ? 'text-[#1B5E4B] font-bold' : isDone ? 'text-gray-700' : 'text-gray-400'
                 }`}
               >
                 {step.label}
