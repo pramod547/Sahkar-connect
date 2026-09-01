@@ -3,5 +3,6 @@
   "/user/login/page": "app/user/login/page.js",
   "/user/profile/page": "app/user/profile/page.js",
   "/user/register/page": "app/user/register/page.js",
+  "/booking/[listingId]/page": "app/booking/[listingId]/page.js",
   "/page": "app/page.js"
 }
