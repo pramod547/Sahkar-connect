@@ -83,10 +83,29 @@ export default function TrackBookingPage() {
         )}
       </div>
 
-      <div className="bg-[#F5ECD7]/80 p-3 rounded-xl border border-[#C67B4C]/30 text-center">
-        <p className="text-xs text-gray-700">
-          Fairly dispatched by <strong className="text-[#1B5E4B]">SahakarConnect Fair-Match Engine</strong> based on rotation fairness & proximity.
-        </p>
+      <div className="space-y-3">
+        <button
+          onClick={() => setStatus(status === 'completed' ? 'assigned' : 'completed')}
+          className="w-full text-xs font-bold text-[#1B5E4B] underline text-center block"
+        >
+          {status === 'completed' ? 'Simulate In Progress' : 'Simulate Complete Job'}
+        </button>
+
+        {status === 'completed' && (
+          <a
+            href={`/feedback/${bookingId}`}
+            className="w-full bg-[#1B5E4B] hover:bg-[#7BA68D] text-white font-extrabold py-3 px-4 rounded-xl shadow-md transition flex items-center justify-center space-x-2 text-xs"
+          >
+            <Star className="w-4 h-4 fill-amber-300 text-amber-300" />
+            <span>Rate & Review Worker</span>
+          </a>
+        )}
+
+        <div className="bg-[#F5ECD7]/80 p-3 rounded-xl border border-[#C67B4C]/30 text-center">
+          <p className="text-xs text-gray-700">
+            Fairly dispatched by <strong className="text-[#1B5E4B]">SahakarConnect Fair-Match Engine</strong> based on rotation fairness & proximity.
+          </p>
+        </div>
       </div>
     </div>
   );
