@@ -1,8 +1,9 @@
 {
   "/workers/page": "app/workers/page.js",
-  "/user/register/page": "app/user/register/page.js",
   "/user/profile/page": "app/user/profile/page.js",
+  "/user/register/page": "app/user/register/page.js",
   "/booking/[listingId]/page": "app/booking/[listingId]/page.js",
   "/page": "app/page.js",
-  "/user/privacy/page": "app/user/privacy/page.js"
+  "/user/privacy/page": "app/user/privacy/page.js",
+  "/worker-portal/page": "app/worker-portal/page.js"
 }
