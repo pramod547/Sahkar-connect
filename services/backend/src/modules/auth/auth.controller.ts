@@ -31,7 +31,7 @@ export class AuthController {
         });
       }
 
-      const token = request.server.jwt.sign(result.payload);
+      const token = request.server.jwt.sign(result.payload as any);
       return reply.send({
         access_token: token,
         user: result.user,
@@ -52,7 +52,7 @@ export class AuthController {
 
     try {
       const result = await this.authService.register(parseResult.data);
-      const token = request.server.jwt.sign(result.payload);
+      const token = request.server.jwt.sign(result.payload as any);
       return reply.status(201).send({
         access_token: token,
         user: result.user,

@@ -19,7 +19,7 @@ const redisPlugin: FastifyPluginAsync = fp(async (server) => {
     await redis.connect();
     server.log.info('connected to Redis');
   } catch (err) {
-    server.log.warn('Redis connection deferred/failed in local dev:', err);
+    server.log.warn(err, 'Redis connection deferred/failed in local dev:');
   }
 
   server.decorate('redis', redis);
