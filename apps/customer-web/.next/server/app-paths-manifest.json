@@ -1,5 +1,8 @@
 {
-  "/page": "app/page.js",
   "/booking/[listingId]/page": "app/booking/[listingId]/page.js",
-  "/portal/page": "app/portal/page.js"
+  "/workers/page": "app/workers/page.js",
+  "/page": "app/page.js",
+  "/portal/page": "app/portal/page.js",
+  "/worker-portal/page": "app/worker-portal/page.js",
+  "/worker-portal/register/page": "app/worker-portal/register/page.js"
 }

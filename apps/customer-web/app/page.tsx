@@ -98,7 +98,7 @@ export default function HomePage() {
       </div>
 
       {/* Hero Cooperative Trust Banner */}
-      <div className="bg-gradient-to-r from-[#1B5E4B] to-[#7BA68D] p-4 rounded-2xl text-white mb-6 shadow-lg relative overflow-hidden">
+      <div className="bg-gradient-to-r from-[#1B5E4B] to-[#7BA68D] p-4 rounded-2xl text-white mb-4 shadow-lg relative overflow-hidden">
         <div className="relative z-10">
           <div className="inline-flex items-center space-x-1 bg-[#C67B4C] text-white text-[10px] font-extrabold px-2.5 py-0.5 rounded-full uppercase tracking-wider mb-2">
             <ShieldCheck className="w-3 h-3" />
@@ -111,6 +111,11 @@ export default function HomePage() {
             Direct worker payouts, transparent fee structure & government certified skills.
           </p>
         </div>
+      </div>
+
+      {/* Single App Handover Helper Badge */}
+      <div className="bg-[#F5ECD7] border border-[#C67B4C]/30 p-2.5 px-3 rounded-xl mb-5 flex items-center justify-between text-xs text-[#1B5E4B] font-semibold shadow-xs">
+        <span>💡 Tap bottom tabs anytime to switch to Worker Portal or Profile</span>
       </div>
 
       {/* Quick Portal Switch Bar */}
