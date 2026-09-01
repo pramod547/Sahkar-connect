@@ -16,8 +16,6 @@ import {
   MapPin,
   ShieldCheck,
   ArrowRight,
-  HardHat,
-  User,
 } from 'lucide-react';
 
 const TOP_WORKERS: Worker[] = [
@@ -117,39 +115,7 @@ export default function HomePage() {
         </div>
       </div>
 
-      {/* Single App Handover Helper Badge */}
-      <div className="bg-[#F5ECD7] border border-[#C67B4C]/30 p-2.5 px-3 rounded-xl mb-5 flex items-center justify-between text-xs text-[#1B5E4B] font-semibold shadow-xs">
-        <span>💡 Tap bottom tabs anytime to switch to Worker Portal or Profile</span>
-      </div>
 
-      {/* Quick Portal Switch Bar */}
-      <div className="grid grid-cols-2 gap-3 mb-6">
-        <Link
-          href="/worker-portal"
-          className="bg-white p-3 rounded-xl border border-gray-200 shadow-xs hover:border-[#1B5E4B] transition flex items-center space-x-3 group"
-        >
-          <div className="w-9 h-9 rounded-lg bg-[#F5ECD7] flex items-center justify-center text-[#1B5E4B] group-hover:bg-[#1B5E4B] group-hover:text-white transition shrink-0">
-            <HardHat className="w-5 h-5" />
-          </div>
-          <div>
-            <span className="text-xs font-bold text-[#1B5E4B] block leading-tight">Worker Portal</span>
-            <span className="text-[10px] text-gray-500">Login / Register</span>
-          </div>
-        </Link>
-
-        <Link
-          href="/user/login"
-          className="bg-white p-3 rounded-xl border border-gray-200 shadow-xs hover:border-[#1B5E4B] transition flex items-center space-x-3 group"
-        >
-          <div className="w-9 h-9 rounded-lg bg-emerald-50 flex items-center justify-center text-emerald-800 group-hover:bg-[#1B5E4B] group-hover:text-white transition shrink-0">
-            <User className="w-5 h-5" />
-          </div>
-          <div>
-            <span className="text-xs font-bold text-[#1B5E4B] block leading-tight">Customer Login</span>
-            <span className="text-[10px] text-gray-500">Manage Bookings</span>
-          </div>
-        </Link>
-      </div>
 
       {/* Browse Categories Grid */}
       <section className="mb-6">

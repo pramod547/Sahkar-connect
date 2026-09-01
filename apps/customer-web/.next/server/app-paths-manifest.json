@@ -1,9 +1,7 @@
 {
-  "/page": "app/page.js",
-  "/worker-portal/page": "app/worker-portal/page.js",
-  "/user/login/page": "app/user/login/page.js",
-  "/worker-portal/register/page": "app/worker-portal/register/page.js",
-  "/user/profile/page": "app/user/profile/page.js",
   "/workers/page": "app/workers/page.js",
-  "/user/register/page": "app/user/register/page.js"
+  "/user/login/page": "app/user/login/page.js",
+  "/user/profile/page": "app/user/profile/page.js",
+  "/user/register/page": "app/user/register/page.js",
+  "/page": "app/page.js"
 }
