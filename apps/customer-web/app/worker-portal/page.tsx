@@ -16,7 +16,7 @@ export default function WorkerPortalLanding() {
               <HardHat className="w-6 h-6" />
             </div>
             <div>
-              <h1 className="text-base font-extrabold text-[#1B5E4B]">Sahakar Worker Portal</h1>
+              <h1 className="text-base font-extrabold text-[#1B5E4B]">Sahakar Service Provider Portal</h1>
               <p className="text-[11px] text-gray-500">Cooperative Member Services</p>
             </div>
           </div>
@@ -26,7 +26,7 @@ export default function WorkerPortalLanding() {
         {/* Hero Card */}
         <div className="bg-gradient-to-br from-[#1B5E4B] to-[#7BA68D] p-5 rounded-2xl text-white mb-6 shadow-lg">
           <span className="bg-[#C67B4C] text-white text-[10px] font-extrabold px-2.5 py-0.5 rounded-full uppercase tracking-wider">
-            Worker Ownership
+            Service Provider Ownership
           </span>
           <h2 className="text-lg font-extrabold mt-2 leading-snug">
             Get 88% Direct Payouts on Every Job
@@ -46,7 +46,7 @@ export default function WorkerPortalLanding() {
             <div className="flex items-center space-x-3 p-2 rounded-xl bg-emerald-50 text-emerald-900 border border-emerald-200">
               <ShieldCheck className="w-5 h-5 text-emerald-700 shrink-0" />
               <div>
-                <span className="text-xs font-bold block">Government Certified Workers</span>
+                <span className="text-xs font-bold block">Government Certified Service Providers</span>
                 <span className="text-[10px] text-emerald-700">NCCT / Skill India Certified Professionals</span>
               </div>
             </div>
@@ -77,7 +77,7 @@ export default function WorkerPortalLanding() {
           className="w-full bg-[#1B5E4B] hover:bg-[#7BA68D] text-white font-extrabold py-3.5 px-4 rounded-xl shadow-md transition flex items-center justify-center space-x-2 text-sm"
         >
           <UserPlus className="w-5 h-5" />
-          <span>Register as a Worker / Partner</span>
+          <span>Register as a Service Provider / Partner</span>
           <ArrowRight className="w-4 h-4 ml-auto" />
         </Link>
 
@@ -86,7 +86,7 @@ export default function WorkerPortalLanding() {
           className="w-full bg-white hover:bg-gray-50 border-2 border-[#1B5E4B] text-[#1B5E4B] font-extrabold py-3 px-4 rounded-xl transition flex items-center justify-center space-x-2 text-sm"
         >
           <LogIn className="w-5 h-5" />
-          <span>Existing Worker Login</span>
+          <span>Existing Service Provider Login</span>
         </Link>
       </div>
     </div>

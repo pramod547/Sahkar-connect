@@ -118,7 +118,7 @@ export default function UserProfilePage() {
                   </span>
                   <h4 className="font-extrabold text-sm text-[#2B2B2B] mt-1">{b.serviceName}</h4>
                   <span className="text-xs text-gray-500 font-medium block mt-0.5">
-                    Worker: {b.workerName} ({b.workerCode})
+                    Service Provider: {b.workerName} ({b.workerCode})
                   </span>
                 </div>
                 <span className="text-sm font-extrabold text-[#1B5E4B]">{b.amount}</span>
@@ -134,7 +134,7 @@ export default function UserProfilePage() {
                   className="inline-flex items-center space-x-1 text-xs font-bold text-[#C67B4C] bg-amber-50 px-2.5 py-1 rounded-lg border border-amber-200 hover:bg-amber-100 transition"
                 >
                   <Star className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
-                  <span>Rate Worker</span>
+                  <span>Rate Service Provider</span>
                 </Link>
               </div>
             </div>

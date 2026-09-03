@@ -1,6 +1,7 @@
 {
   "/page": "app/page.js",
-  "/worker-portal/dashboard/page": "app/worker-portal/dashboard/page.js",
+  "/booking/[listingId]/page": "app/booking/[listingId]/page.js",
+  "/track/[bookingId]/page": "app/track/[bookingId]/page.js",
   "/user/profile/page": "app/user/profile/page.js",
-  "/workers/page": "app/workers/page.js"
+  "/feedback/[bookingId]/page": "app/feedback/[bookingId]/page.js"
 }

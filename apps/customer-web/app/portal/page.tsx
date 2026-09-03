@@ -150,7 +150,7 @@ export default function MasterPortalPage() {
               <div className="mt-4 pt-3 border-t border-gray-100 flex flex-wrap gap-4 text-[11px] text-gray-500">
                 <span>🔑 <strong>Society Admin:</strong> 8888</span>
                 <span>🔑 <strong>Federation Admin:</strong> 9999</span>
-                <span>🔑 <strong>Worker App:</strong> 1234</span>
+                <span>🔑 <strong>Service Provider App:</strong> 1234</span>
                 <span>🌐 <strong>Customer Web:</strong> Public</span>
               </div>
             </div>
@@ -252,7 +252,7 @@ export default function MasterPortalPage() {
       <section className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
         <div className="bg-white p-5 rounded-2xl border border-gray-200 shadow-sm">
           <h2 className="text-base font-bold text-[#1B5E4B] mb-2 flex items-center">
-            <Smartphone className="w-5 h-5 mr-2 text-[#C67B4C]" /> Worker Mobile App (Expo)
+            <Smartphone className="w-5 h-5 mr-2 text-[#C67B4C]" /> Service Provider Mobile App (Expo)
           </h2>
           <p className="text-xs text-gray-600 mb-3 leading-relaxed">
             Offline-tolerant React Native app featuring Fair-Match Job Offers, 45s timer, Status Stepper, and Hindi/Marathi Voice Assistant.

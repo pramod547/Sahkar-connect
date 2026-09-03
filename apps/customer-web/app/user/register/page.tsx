@@ -71,7 +71,7 @@ export default function UserRegisterPage() {
             <CheckCircle2 className="w-12 h-12 text-emerald-600 mx-auto mb-3 animate-bounce" />
             <h2 className="text-lg font-extrabold text-[#1B5E4B]">Registration Verified!</h2>
             <p className="text-xs text-gray-500 mt-1">
-              Location set to <strong>{area}, {city}</strong>. Loading nearby verified cooperative workers...
+              Location set to <strong>{area}, {city}</strong>. Loading nearby verified cooperative service providers...
             </p>
           </div>
         ) : step === 1 ? (
@@ -109,7 +109,7 @@ export default function UserRegisterPage() {
             {/* Location Region Section */}
             <div className="pt-2 border-t border-gray-100">
               <span className="text-xs font-extrabold text-[#1B5E4B] flex items-center mb-2">
-                <MapPin className="w-3.5 h-3.5 mr-1 text-[#C67B4C]" /> Select Your Region & Area (For Worker Match)
+                <MapPin className="w-3.5 h-3.5 mr-1 text-[#C67B4C]" /> Select Your Region & Area (For Service Provider Match)
               </span>
 
               <div className="grid grid-cols-2 gap-2 mb-2">
@@ -200,7 +200,7 @@ export default function UserRegisterPage() {
               className="w-full bg-[#1B5E4B] hover:bg-[#7BA68D] text-white font-extrabold py-3 px-4 rounded-xl shadow-md transition flex items-center justify-center space-x-2 cursor-pointer text-xs"
             >
               <ShieldCheck className="w-4 h-4" />
-              <span>Verify & Show Local Workers</span>
+              <span>Verify & Show Local Service Providers</span>
             </button>
           </form>
         )}

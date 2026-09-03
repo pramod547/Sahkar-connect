@@ -61,7 +61,7 @@ export default function WorkerRegisterPage() {
 
       <div className="bg-white p-6 rounded-2xl border border-gray-200 shadow-md">
         <div className="flex items-center justify-between mb-4">
-          <h1 className="text-lg font-extrabold text-[#1B5E4B]">Worker Registration</h1>
+          <h1 className="text-lg font-extrabold text-[#1B5E4B]">Service Provider Registration</h1>
           <span className="text-xs font-bold bg-[#1B5E4B]/10 text-[#1B5E4B] px-2.5 py-1 rounded-full">
             Step {step} of 3
           </span>
@@ -71,20 +71,20 @@ export default function WorkerRegisterPage() {
           <div className="text-center py-8">
             <CheckCircle2 className="w-12 h-12 text-emerald-600 mx-auto mb-3 animate-bounce" />
             <h2 className="text-lg font-extrabold text-[#1B5E4B]">Registration Completed!</h2>
-            <p className="text-xs text-gray-500 mt-1">Generating your Worker ID & Redirecting to Dashboard...</p>
+            <p className="text-xs text-gray-500 mt-1">Generating your Service Provider ID & Redirecting to Dashboard...</p>
           </div>
         ) : (
           <form onSubmit={handleSubmit}>
-            {/* Step 1: Worker Category & Type */}
+            {/* Step 1: Service Provider Category & Type */}
             {step === 1 && (
               <div className="space-y-4">
                 <div>
-                  <label className="text-xs font-bold text-gray-700 block mb-2">Select Worker Category</label>
+                  <label className="text-xs font-bold text-gray-700 block mb-2">Select Service Provider Category</label>
                   <div className="grid grid-cols-1 gap-2.5">
                     {[
-                      { id: 'government', title: 'Government Certified Worker', desc: 'NCCT, Skill India or Govt recognized', icon: ShieldCheck, color: 'border-emerald-500 bg-emerald-50 text-emerald-900' },
-                      { id: 'non-government', title: 'Independent Worker (Non-Govt)', desc: 'Self-employed tradesperson or artisan', icon: UserCheck, color: 'border-amber-500 bg-amber-50 text-amber-900' },
-                      { id: 'private', title: 'Private Company Worker / Partner', desc: 'Working under private agency / firm', icon: Building2, color: 'border-blue-500 bg-blue-50 text-blue-900' },
+                      { id: 'government', title: 'Government Certified Service Provider', desc: 'NCCT, Skill India or Govt recognized', icon: ShieldCheck, color: 'border-emerald-500 bg-emerald-50 text-emerald-900' },
+                      { id: 'non-government', title: 'Independent Service Provider (Non-Govt)', desc: 'Self-employed tradesperson or artisan', icon: UserCheck, color: 'border-amber-500 bg-amber-50 text-amber-900' },
+                      { id: 'private', title: 'Private Company Service Provider / Partner', desc: 'Working under private agency / firm', icon: Building2, color: 'border-blue-500 bg-blue-50 text-blue-900' },
                     ].map((type) => {
                       const Icon = type.icon;
                       const isSelected = workerType === type.id;

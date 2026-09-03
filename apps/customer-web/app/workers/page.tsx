@@ -157,7 +157,7 @@ export default function WorkersPage() {
         <div className="bg-amber-50 border border-amber-200 p-3 rounded-xl mb-4 flex items-center justify-between text-xs text-amber-900">
           <div className="flex items-center space-x-2">
             <Lock className="w-4 h-4 text-amber-700 shrink-0" />
-            <span>Register your Region & Area to see verified local workers!</span>
+            <span>Register your Region & Area to see verified local service providers!</span>
           </div>
           <button
             onClick={() => router.push('/user/register')}
@@ -175,7 +175,7 @@ export default function WorkersPage() {
           type="text"
           value={search}
           onChange={(e) => setSearch(e.target.value)}
-          placeholder="Search by worker name, ID, area or skill..."
+          placeholder="Search by service provider name, ID, area or skill..."
           className="w-full text-xs pl-10 pr-4 py-2.5 bg-white border border-gray-200 rounded-xl shadow-xs focus:outline-none focus:border-[#1B5E4B]"
         />
       </div>
@@ -183,7 +183,7 @@ export default function WorkersPage() {
       {/* Filter Chips for Worker Types */}
       <div className="flex items-center space-x-2 mb-5 overflow-x-auto pb-1 no-scrollbar">
         {[
-          { id: 'all', label: 'All Workers', icon: Filter },
+          { id: 'all', label: 'All Service Providers', icon: Filter },
           { id: 'government', label: 'Govt Certified', icon: ShieldCheck },
           { id: 'non-government', label: 'Independent', icon: UserCheck },
           { id: 'private', label: 'Private Partner', icon: Building2 },
@@ -216,8 +216,8 @@ export default function WorkersPage() {
 
         {filteredWorkers.length === 0 && (
           <div className="text-center py-10 bg-white rounded-2xl border border-gray-200 p-6">
-            <p className="text-sm font-bold text-gray-600">No workers found matching your filter</p>
-            <p className="text-xs text-gray-400 mt-1">Try adjusting search query or selecting 'All Workers'</p>
+            <p className="text-sm font-bold text-gray-600">No service providers found matching your filter</p>
+            <p className="text-xs text-gray-400 mt-1">Try adjusting search query or selecting 'All Service Providers'</p>
           </div>
         )}
       </div>

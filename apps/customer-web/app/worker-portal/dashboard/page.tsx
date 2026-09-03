@@ -2,13 +2,13 @@
 
 import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
-import { HardHat, ShieldCheck, Star, Award, Heart, CheckCircle2, LogOut, ArrowUpRight, DollarSign } from 'lucide-react';
+import { HardHat, ShieldCheck, Star, Award, Heart, CheckCircle2, LogOut, ArrowUpRight, DollarSign, MapPin, Navigation, PhoneCall } from 'lucide-react';
 import { LanguageSwitcher } from '../../../components/LanguageSwitcher';
 
 export default function WorkerDashboardPage() {
   const router = useRouter();
   const [workerSession, setWorkerSession] = useState<any>(null);
-
+  const [isJobAccepted, setIsJobAccepted] = useState(false);
   useEffect(() => {
     const session = localStorage.getItem('sahakar_worker_session');
     if (session) {
@@ -44,7 +44,7 @@ export default function WorkerDashboardPage() {
             <HardHat className="w-5 h-5" />
           </div>
           <div>
-            <h1 className="text-base font-extrabold text-[#1B5E4B]">Worker Dashboard</h1>
+            <h1 className="text-base font-extrabold text-[#1B5E4B]">Service Provider Dashboard</h1>
             <span className="text-[10px] text-emerald-700 font-bold bg-emerald-100 px-2 py-0.5 rounded-full">
               ONLINE & READY
             </span>
@@ -114,22 +114,76 @@ export default function WorkerDashboardPage() {
         </div>
       </div>
 
-      {/* Active Job Alert Banner */}
-      <div className="bg-white p-4 rounded-2xl border-2 border-[#1B5E4B] shadow-md mb-5">
-        <div className="flex items-start justify-between">
-          <div>
-            <span className="text-[10px] font-extrabold text-amber-700 bg-amber-100 px-2 py-0.5 rounded-full uppercase">
-              New Fair-Match Job Offer
-            </span>
-            <h3 className="font-extrabold text-sm text-[#1B5E4B] mt-1.5">Electrical Inspection & Repair</h3>
-            <p className="text-xs text-gray-600 mt-0.5">Location: Bandra West (1.2 km away)</p>
-            <span className="text-xs font-extrabold text-[#1B5E4B] block mt-1">Payout: ₹440.00 (88% split)</span>
+      {/* Active Job Alert Banner / Live Map Navigation */}
+      {isJobAccepted ? (
+        <div className="bg-white p-4 rounded-2xl border-2 border-[#1B5E4B] shadow-md mb-5 overflow-hidden relative">
+          {/* Map Visualization Placeholder */}
+          <div className="absolute inset-0 bg-blue-50 opacity-40 z-0">
+            <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+              <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+                <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#60A5FA" strokeWidth="0.5"/>
+              </pattern>
+              <rect width="100%" height="100%" fill="url(#grid)" />
+              {/* Route Line */}
+              <path d="M 40 120 Q 150 180 250 80 T 350 140" fill="none" stroke="#1B5E4B" strokeWidth="4" strokeDasharray="6,4" />
+              <circle cx="40" cy="120" r="6" fill="#1B5E4B" />
+              <circle cx="350" cy="140" r="8" fill="#C67B4C" />
+            </svg>
           </div>
-          <button className="bg-[#1B5E4B] text-white text-xs font-bold px-3 py-2 rounded-xl shadow cursor-pointer flex items-center">
-            Accept <ArrowUpRight className="w-3.5 h-3.5 ml-1" />
-          </button>
+          
+          <div className="relative z-10 flex flex-col justify-between h-full">
+            <div className="flex items-start justify-between bg-white/90 backdrop-blur-sm p-3 rounded-xl border border-gray-100 shadow-sm">
+              <div>
+                <span className="text-[10px] font-extrabold text-blue-700 bg-blue-100 px-2 py-0.5 rounded-full uppercase flex items-center w-max mb-1">
+                  <Navigation className="w-3 h-3 mr-1" /> Live Navigation
+                </span>
+                <h3 className="font-extrabold text-sm text-[#2B2B2B]">En Route to Customer</h3>
+                <p className="text-[11px] text-gray-500 font-bold mt-0.5">ETA: 8 mins (1.2 km)</p>
+              </div>
+              <button 
+                onClick={() => setIsJobAccepted(false)}
+                className="bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold px-3 py-1.5 rounded-lg shadow cursor-pointer transition"
+              >
+                Arrived
+              </button>
+            </div>
+            
+            <div className="bg-white/95 p-3 rounded-xl border border-gray-100 shadow-sm mt-32">
+              <h4 className="text-[10px] uppercase font-extrabold text-gray-500 mb-1">Customer Details</h4>
+              <div className="flex items-center justify-between">
+                <div>
+                  <span className="font-bold text-sm text-[#1B5E4B] block">Ananya Sharma</span>
+                  <span className="text-xs text-gray-600 flex items-center mt-0.5">
+                    <MapPin className="w-3 h-3 text-[#C67B4C] mr-1" /> Bandra West, Mumbai
+                  </span>
+                </div>
+                <a href="tel:9123456789" className="w-10 h-10 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center border border-emerald-200">
+                  <PhoneCall className="w-4 h-4" />
+                </a>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
+      ) : (
+        <div className="bg-white p-4 rounded-2xl border-2 border-[#1B5E4B] shadow-md mb-5">
+          <div className="flex items-start justify-between">
+            <div>
+              <span className="text-[10px] font-extrabold text-amber-700 bg-amber-100 px-2 py-0.5 rounded-full uppercase">
+                New Fair-Match Job Offer
+              </span>
+              <h3 className="font-extrabold text-sm text-[#1B5E4B] mt-1.5">Electrical Inspection & Repair</h3>
+              <p className="text-xs text-gray-600 mt-0.5">Location: Bandra West (1.2 km away)</p>
+              <span className="text-xs font-extrabold text-[#1B5E4B] block mt-1">Payout: ₹440.00 (88% split)</span>
+            </div>
+            <button 
+              onClick={() => setIsJobAccepted(true)}
+              className="bg-[#1B5E4B] text-white text-xs font-bold px-3 py-2 rounded-xl shadow cursor-pointer flex items-center transition hover:bg-[#7BA68D]"
+            >
+              Accept <ArrowUpRight className="w-3.5 h-3.5 ml-1" />
+            </button>
+          </div>
+        </div>
+      )}
 
       {/* Welfare Fund & Protections */}
       <div className="bg-white p-4 rounded-2xl border border-gray-200 shadow-xs mb-5">
@@ -147,7 +201,7 @@ export default function WorkerDashboardPage() {
         className="w-full bg-white border border-red-200 text-red-600 hover:bg-red-50 font-bold py-3 rounded-xl transition flex items-center justify-center space-x-2 text-xs cursor-pointer"
       >
         <LogOut className="w-4 h-4" />
-        <span>Logout from Worker Portal</span>
+        <span>Logout from Service Provider Portal</span>
       </button>
     </div>
   );

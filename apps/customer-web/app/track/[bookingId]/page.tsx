@@ -57,7 +57,7 @@ export default function TrackBookingPage() {
               <div>
                 <div className="flex items-center space-x-1.5 mb-1">
                   <ShieldCheck className="w-4 h-4 text-[#1B5E4B]" />
-                  <span className="text-xs font-bold text-[#1B5E4B]">Society Verified Worker</span>
+                  <span className="text-xs font-bold text-[#1B5E4B]">Society Verified Service Provider</span>
                 </div>
                 <h3 className="text-base font-bold text-gray-900">{worker.name}</h3>
                 <p className="text-xs text-gray-600">{worker.societyName}</p>
@@ -97,7 +97,7 @@ export default function TrackBookingPage() {
             className="w-full bg-[#1B5E4B] hover:bg-[#7BA68D] text-white font-extrabold py-3 px-4 rounded-xl shadow-md transition flex items-center justify-center space-x-2 text-xs"
           >
             <Star className="w-4 h-4 fill-amber-300 text-amber-300" />
-            <span>Rate & Review Worker</span>
+            <span>Rate & Review Service Provider</span>
           </a>
         )}
 

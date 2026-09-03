@@ -45,7 +45,7 @@ export default function WorkerLoginPage() {
             <div className="w-9 h-9 rounded-xl bg-[#1B5E4B] text-white flex items-center justify-center font-extrabold text-base">
               <HardHat className="w-5 h-5" />
             </div>
-            <h1 className="text-base font-extrabold text-[#1B5E4B]">Worker Login</h1>
+            <h1 className="text-base font-extrabold text-[#1B5E4B]">Service Provider Login</h1>
           </div>
           <LanguageSwitcher />
         </div>
