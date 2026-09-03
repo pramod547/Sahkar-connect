@@ -1,3 +1,6 @@
 {
-  "/page": "app/page.js"
+  "/page": "app/page.js",
+  "/worker-portal/dashboard/page": "app/worker-portal/dashboard/page.js",
+  "/user/profile/page": "app/user/profile/page.js",
+  "/workers/page": "app/workers/page.js"
 }
