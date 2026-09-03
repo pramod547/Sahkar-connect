@@ -13,6 +13,12 @@ const redisPlugin: FastifyPluginAsync = fp(async (server) => {
   const redis = new Redis(redisUrl, {
     lazyConnect: true,
     maxRetriesPerRequest: null,
+    enableOfflineQueue: false,
+    retryStrategy: () => null,
+  });
+
+  redis.on('error', (err) => {
+    // Suppress unhandled event errors in local dev when Redis is offline
   });
 
   try {

@@ -1,4 +1,4 @@
-// File: D:\PythonProjects\SahakarConnect\Sahkar-connect\apps\admin-web\app\layout.tsx
+// File: D:\project\sahkar connect\Sahkar-connect\apps\admin-web\app\layout.tsx
 import * as entry from '../../../app/layout.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 

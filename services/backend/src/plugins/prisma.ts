@@ -10,12 +10,21 @@ declare module 'fastify' {
 
 const prismaPlugin: FastifyPluginAsync = fp(async (server) => {
   const prisma = new PrismaClient();
-  await prisma.$connect();
+  try {
+    await prisma.$connect();
+    server.log.info('Connected to PostgreSQL database');
+  } catch (err) {
+    server.log.warn(err, 'PostgreSQL database connection deferred/failed in local dev:');
+  }
 
   server.decorate('prisma', prisma);
 
   server.addHook('onClose', async (serverInstance) => {
-    await serverInstance.prisma.$disconnect();
+    try {
+      await serverInstance.prisma.$disconnect();
+    } catch {
+      // ignore disconnect errors
+    }
   });
 });
 
